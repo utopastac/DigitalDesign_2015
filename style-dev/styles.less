@@ -1,0 +1,687 @@
+@import "base";
+@import "variables";
+@import "fonts";
+@import "library";
+@import "code";
+
+/* FULL WIDTH IMAGES */
+
+body {
+	letter-spacing: 0em;
+	word-spacing: 0em;
+	background: #FFFFFF;
+	color: #1A1A1A;
+	overflow-x: hidden;
+    .sans;
+    padding-top: @navSmallHeight;
+    font-size: 100%;
+}
+
+div.screen {
+    position: relative;
+    width: 100%;
+    .clearfix;
+    margin: 0px; padding: 0px;
+    background: @white;
+    /*border: 15px solid @white;*/
+    border-bottom: none;
+    
+    &.head { background: @white-alt; }
+    &.foot { 
+        border-top: none;
+        h4 {
+            margin: 0; display: none; width: 100%; .size(13); text-transform: uppercase; color: @white-alt; background: @dark-grey; height: 45px; line-height: 45px;  text-align: center; 
+        }
+    }
+    &.home { background: @white; }
+}
+
+ul, li {
+    margin: 0; padding: 0;
+}
+
+h1, h2, h3, h4,
+.item h3,
+.nextLinks a,
+article header .extra span,
+.item a, article#profile ul#social li a,
+a.cta {
+    .heading;
+}
+
+h1, h2, h3, h4 { .regular; }
+
+p { color: @text-grey; margin-bottom: 11px; line-height: 145%; .size(16); }
+p em { font-style: italic; }
+a { color: @cta-green; .regular; text-decoration: none; }
+a:hover { color:@mint; }
+
+a.cta {
+    display: inline-block; border: 1px solid @cta-green; padding: 0px 14px; .regular; text-transform: uppercase; .size(14); height: 33px; line-height: 33px;
+    
+    &:hover {
+        border: 1px solid @mint;    
+    }
+}
+
+img.full {
+    width: 100%; 
+}
+
+/*----------------- PROJECTS -----------------*/
+
+article { position: relative; width: 100%; clear: both; overflow: hidden; height: 100%; }
+article header, article .images { float: none; width: 100%; margin: 0; position: relative; }
+article header .content { padding: 20px 20px 10px 20px; text-align: center; max-width: 450px; margin: 20px auto 0px auto; margin-bottom: 0 !important; }
+
+article .images { 
+    max-width: 1000px; margin: 0 auto; padding-top: 30px;
+    
+    li { 
+        @borderColour: @border-grey;
+        @extraColour: @white;
+        margin-bottom: 30px; position: relative;
+        
+        img { width: 100%; }
+        
+        &.desktop-screen { 
+        
+            span {
+                display: block; .radius(3px 3px 0px 0px); height: 18px; background: @borderColour; position: relative; 
+                
+                &:after {
+                    content: "•••";
+                    position: absolute; top: 0px; left: 7px;
+                    color: @extraColour; .size(15); letter-spacing: 2px; line-height: 18px;
+                }  
+            }
+            
+            img { 
+                .radius(0px 0px 3px 3px); margin: 0 !important; padding: 0 !important;
+                border: 1px solid @borderColour;
+                border-top: none; .box_shadow(0px 1px 1px 0px rgba(0, 0, 0, 0.15));
+
+            }
+        }
+        
+        &.cropped-screen { 
+            span { display: none; }
+            /*span {
+                display: block; position: absolute; top: 0px; left: 0px; width: 50px height: 50px; background: @borderColour; color: @extraColour; z-index: 5000;
+                &:after {
+                    content: "<i class='fa fa-search'></i>";
+                }
+            }*/
+            
+            img {
+                .rounded(3px); margin: 0 !important; padding: 0 !important;
+                border: 1px solid @borderColour;
+            }
+        }
+        
+        &.mobile-screen {
+            
+            width: 70%; max-width: 440px; margin: 0 auto 30px auto; .rounded(20px); background: @borderColour; padding: 55px 12px 75px 12px;
+            
+            span {
+                display: block; .rounded(5px); height: 10px; background: @extraColour; position: absolute; width: 40px;  left: 50%; margin-left: -20px; top: 30px; z-index: 2000;                  
+            }
+            
+            &:after {
+                @circleWidth: 40px;
+                display: block; content: " "; position: absolute; bottom: (75px - @circleWidth) / 2 ; left: 50%; margin-left: -@circleWidth/2; width: @circleWidth; height: @circleWidth; .rounded(50%);
+                background: @extraColour;
+            }
+            
+            img { .rounded(3px); margin: 0 !important; padding: 0 !important; }
+        }
+        
+    }
+}
+
+article#project {
+
+    h1 { .serif; font-weight: 300; font-style: italic; .size(38); line-height: 95%; .regular; }
+    
+    header {
+        margin-bottom: 27px;
+    }
+    
+    .extra { 
+        display: block;
+        p { margin: 0px; .size(14); }
+        span { padding: 0 10px 0 0; .size(12); width: 70px; display: inline-block; letter-spacing: 1px; text-transform: uppercase; color:@mint-dark; }
+    }
+    
+    .mainContent {
+        p { margin-bottom: 14px; .size(18); line-height: 155%; .mixin-line; }
+    }
+    
+    .mainColumn {
+        .content { max-width: 850px;  }
+    }
+
+    .sideColumn {
+        background: @white;
+    }
+}
+
+.mixin-line(@col:@mint) {
+    /*position: relative; padding-bottom: 40px; 
+    
+     &:after {
+          content: " ";
+          display: block;
+          width: 50px;
+          background: @col;
+          height: 1px;   
+          position: absolute; bottom: 0px; left: 0px;
+     }*/
+}
+
+.nextLinks { 
+    margin-top: 30px; .mixin-line; padding-bottom: 18px; display: none;
+    
+    a { 
+        color: fadeout(@mint-dark, 35%); display: inline-block; margin-bottom: 10px; margin-right: 5px; padding: 8px; border: 1px solid fadeout(@mint-dark, 35%); float: left; .rounded(2px);
+    }
+}
+
+article#home {
+    //@homeHeight: 240px;
+    text-align: center; //height: @homeHeight; 
+    padding: 40px 0px;
+    
+    h1 {
+        .size(58); margin: 0; color: @blue-alt; text-transform: none;
+    }
+        
+}
+
+/*----------------- END PROJECTS -----------------*/
+
+/*----------------- PROFILE -----------------*/
+
+article#profile {
+    padding: 0; overflow: hidden; .clearfix;
+    
+    header { width: 100%; overflow: hidden; }
+    
+    #intro { 
+        margin-bottom: 55px;
+        .bigBackground; position: relative;
+        
+        .content { 
+            width: 100%; display: block; background: fadeout(@mint-dark, 25%);  max-width: none;
+        }
+        
+        h1 { display: block; .size(35); line-height: 120%; .light; color: @white;  margin: 100px auto !important; z-index: 500; max-width: 750px; }
+    }
+    
+    
+    h2 {
+        margin: 0px; .size(30); padding: 15px 0 10px 0;
+        &.inner { margin-top: 30px; clear: both; }
+    }
+    
+    .mainColumn {
+        
+        .content {
+            max-width: 600px;
+            
+            p {
+                .size(18); marin-bottom: 20px; line-height: 150%;   
+            }
+        }
+        
+    }
+    
+    .skills {
+        margin-top: 45px; padding: 30px 0px; border-top: 1px solid @mint; overflow: hidden; .clearfix;
+        h4 {
+            color: @mint-dark; text-transform: uppercase; margin-bottom: -7px;  
+        }
+        p {
+         color: @text-grey; .size(16) !important;   
+        }
+    }
+
+    .cta { background: @uber-grey; text-align: center; margin-bottom: 15px; }
+    
+}
+
+.mainColumn, .sideColumn {
+    margin-bottom: -99999px !important;
+    padding-bottom: 99999px !important;
+}
+
+.mainColumn { 
+    width: 100%; background: @white; padding-bottom: 35px; height: 100%;
+    
+    .content {
+        margin: 0 auto; width: 85%; max-width: 750px;  
+    }
+    
+    
+}
+
+.sideColumn {
+    width: 100%;
+    position: relative;
+    padding: 30px 0px 0px 0px; text-align: left !important; height: 100%;
+    background: @uber-grey;
+
+    .content {
+        width: 85%; max-width: 600px; margin: 0 auto; margin-bottom: 30px; 
+    }
+    
+    .columnSection {
+        
+    }
+}
+
+.half {
+    width: 100%;   
+}
+
+.job { 
+    overflow: hidden; color: @mid-grey; .mixin-line; padding-bottom: 20px; margin-bottom: 15px;
+    
+    h3 { 
+        color: #333333; .size(25); margin-bottom: 1px;
+        
+        span {
+            display: none; color: @mint-dark; text-transform: uppercase; padding-right: 5px; .bold;
+        }
+    }
+    
+    p { .size(18); line-height: 155%; }
+    
+    h4 { colour: @mid-grey; .size(14); margin: 0; }
+
+    &:last-child:after {
+        display: none;
+    }
+}
+
+p.noMargin { margin: 0px !important; }
+
+a.view { text-transform: uppercase; .size(14); }
+
+/*----------------- END PROFILE -----------------*/
+
+
+/*----------------- HEADER -----------------*/
+
+header#top { 
+    
+    @ht: @navSmallHeight;
+    
+    position: absolute; top: 0; left: 0; width: 100%; height: @ht; z-index: 1000; line-height: @ht; background: @nav-green; .clearfix;
+    .heading;
+    
+    h3 {
+        float: left; margin: 0 20px 0 30px; display: none; .regular; .size(24); color: @blue-alt;
+        a {
+            &.current {
+                color:  @blue-alt;
+                    
+                &:hover { cursor: default; } 
+            }
+        }
+    }
+    nav { 
+        height: @ht;
+        
+        ul { position: relative; float: left; margin: 0px 0px 0px 15px; padding: 0px; }
+        li { 
+            display: inline-block;
+        }
+        a {
+            .size(12); height: @ht; line-height: @ht; padding: 0 8px; display: block; text-transform: uppercase; .bold;
+            
+            &:hover { color: @mint; }
+            &.current { 
+                color:  @mint;
+                
+                &:hover { cursor: default; }   
+            }
+        }
+    }
+    
+}
+
+#social {
+    position: absolute; top: 0px; right: 12px;
+    li {
+        float: left;
+    }
+    a {
+        display: block; padding: 0px 7px; line-height: @navSmallHeight; .size(20);
+        
+        &:hover {
+            background: transparent; color: @mint;
+        }
+    }
+}
+
+/*----------------- END HEADER -----------------*/
+
+/*----------------- NAVIGATION -----------------*/
+
+@itemPadding:   8px;
+
+footer {
+    .clearfix; padding: 0px @itemPadding @itemPadding 0px;
+}
+
+/* PORTFOLIO ITEMS */
+
+.item {
+    
+    width: 100%;
+    position: relative; margin: 0; .regular; text-align: left; padding: @itemPadding 0px 0px @itemPadding; float: left; .radius(3px 3px 0px 0px);
+    
+    a {
+        position: relative; display: block; width: 100%; .regular; background: @white; overflow: hidden; .radius(3px 3px 2px 2px);
+
+        &:visited {
+            color: #000000;
+
+            span {
+                opacity: 1;
+            }
+        }
+
+        span {
+            opacity: 0; position: absolute; padding: 8px; .size(11px); background: @white; top: 0; right: 0; .radius(0px 0px 0px 4px);
+        }
+
+        &:hover {            
+            h3 {
+                
+            }
+        }
+        
+        &.current { 
+            opacity: 0.5; cursor: default;
+            
+            h3 {
+                
+            }
+            
+            &:hover {
+                cursor: default;
+                
+                h3 {
+                    
+                }
+            }
+        }
+        
+    }
+
+    
+    
+    .thumbnail { 
+        position: relative;
+        img { width: 100%; }
+    }
+    
+    .block { margin: 0px; width: 100%; display: block; overflow: hidden; padding: 0;  }
+    
+    h3, ul {
+        display: block;
+    }
+
+    li {
+        display: inline-block; padding: 0px 2px; .rounded(1px); margin-bottom: 2px;
+
+        &:not(:last-child) {
+            margin-right: 2px;
+
+            &:after {
+                content: " - ";
+                display: inline-block; margin-left: 5px;
+            }
+        }
+        
+    }
+    
+    h3 { .serif; font-weight: 300; font-style: italic; .size(17); .regular; color: @black; margin-bottom: 0px; margin-top: 3px; margin-left: 0; }
+    
+    ul { margin-bottom: 5px; display: block; .size(13); color: @light-grey; .regular; margin-top: 3px; letter-spacing: 0.5; text-align: left; }
+    
+    p { .size(16); }
+}
+
+/*----------------- END NAVIGATION -----------------*/
+
+/*----------------- CONTACT -----------------*/
+
+/*----------------- END CONTACT -----------------*/
+
+::selection { background: @peach; color: @black; }
+
+/*----------------- END TOUCH -----------------*/
+
+
+
+@media @mq-small {
+	
+}
+
+@media @mq-small-medium {
+    @mediumItemPadding: 25px;
+    .item {
+        width: 50%;
+        .radius(5px 5px 0px 0px);
+        padding: @mediumItemPadding 0px 0px @mediumItemPadding;
+
+        a { .radius(5px 5px 3px 3px); }
+
+        h3 {
+            .size(22);
+        }
+        .block { }
+    }
+
+    footer { padding: 0px @mediumItemPadding @mediumItemPadding 0px; }
+
+    article#project {
+        h1 { .size(54); }
+    }
+
+    header#top {
+        position: fixed;
+        @ht: @navHeight;
+        height: @ht; line-height: @ht;
+        
+        h3 { display: block;  }
+        
+        nav {
+            height: @ht;
+            ul { margin: 0; }
+            a { padding: 0px 20px; height: @ht; line-height: @ht; }
+        }
+    }
+    
+    #social {
+        a {
+            line-height: @navHeight;
+        }
+    }
+
+    .sideColumn {
+
+        padding: 30px 0px;
+
+        .content {
+            width: 85%;
+        }
+    }
+
+    body {
+        padding-top: @navHeight;
+    }
+}
+
+@media @mq-iPad {
+    header#top {
+        position: absolute;
+    }
+}
+
+@media @mq-medium {
+    @mediumPadding: 30px;
+    footer { padding: 0px @mediumPadding @mediumPadding 0px; }
+    .item {
+        width: 33.33%;
+        padding: @mediumPadding 0px 0px @mediumPadding;
+        
+    }
+
+    article#home {
+        padding: 70px 0px;
+        
+        h1 {
+            .size(100);
+        }
+            
+    }
+        
+    .mainColumn { 
+        width: 64%; float: left;
+        .content {
+            margin-bottom: 35px;
+        }
+    }
+    
+    .sideColumn {
+        width: 36%; float: right; padding: @mediumPadding @mediumPadding @mediumPadding @mediumPadding+10;
+        
+        .content {
+            margin: 0px;   
+        }
+    }
+    
+    .half {
+        width: 50%; float: left;
+        
+        &.left {
+            padding-right: 25px;
+        }
+        
+        &.right {
+            padding-left: 25px;
+        }
+    }
+    
+    #social {
+        a {
+            padding: 0px 12px;   
+        }
+    }
+    
+    article .images {
+        li {
+            margin-bottom: 40px !important;
+        }
+    }
+    
+    
+}
+
+@media @mq-largeHeight {
+    article#home {
+        padding: 110px 0px;
+        
+        h1 {
+            .size(150);
+        }
+            
+    }
+}
+
+@media @mq-large {
+    @largePadding: 50px;
+    .sideColumn {
+
+        padding: @largePadding; 
+
+        .content {
+            max-width: 450px; 
+        }
+    }
+    footer { padding: 0px @largePadding @largePadding 0px; }
+	.item {
+        padding: @largePadding 0px 0px @largePadding;
+
+
+        .block { }
+    
+        h3, ul {
+            
+        }
+    }    
+    
+    article .images {
+        padding-top: 55px;
+        li {
+            
+            margin-bottom: 55px !important; 
+            
+            &.desktop-screen {
+                span {
+                    .radius(5px 5px 0px 0px); height: 28px;
+                    
+                    &:after {
+                        top: 0px; left: 8px; line-height: 28px;
+                        .size(18); letter-spacing: 4px;
+                    }  
+                }
+                
+                img { .radius(0px 0px 5px 5px); margin: 0 !important; padding: 0 !important; }
+            }
+            
+            &.cropped-screen {
+                img { .rounded(4px); }
+            }
+            
+            &.mobile-screen {
+                 width: 70%; .rounded(35px); padding: 90px 20px 115px 20px;
+            
+                span {
+                    .rounded(7px); height: 15px; width: 60px; margin-left: -30px; top: 40px;                 
+                }
+                
+                &:after {
+                    @circleWidth: 62px;
+                    bottom: (115px - @circleWidth) / 2 ; margin-left: -@circleWidth/2; width: @circleWidth; height: @circleWidth;
+                }
+
+                img {
+                    .rounded(8px);
+                }
+            }
+        }
+    }
+    
+    article#profile {
+         .mainColumn {
+            .content {
+                p { .size(22); line-height: 170%; }
+            }
+         }
+    }
+}
+
+@media @mq-uber {
+    @uberPadding: 55px;
+    .sideColumn { padding: @uberPadding; }
+    footer { padding: 0px @uberPadding @uberPadding 0px; }
+	.item {
+        width: 25%;
+        padding: @uberPadding 0px 0px @uberPadding;
+    }
+}
